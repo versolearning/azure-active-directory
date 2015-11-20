@@ -22,21 +22,12 @@ OAuth.registerService('azureAd', 2, null, function(query) {
     // log in attempt)
     if (tokens.refreshToken)
         serviceData.refreshToken = tokens.refreshToken;
-
-    var emailAddress = graphUser.mail || graphUser.userPrincipleName;
     
     var options = {
         profile: {
             name: graphUser.displayName
         }
     };
-
-    if (!!emailAddress){
-        options.emails = [{
-            address : emailAddress,
-            verified: true
-        }];
-    }
 
     return { serviceData: serviceData, options: options };
 });
