@@ -32,7 +32,8 @@ AzureAd.requestCredential = function (options, credentialRequestCompleteCallback
 
     var baseUrl = "https://login.windows.net/common/oauth2/authorize?";
     var loginUrl = baseUrl +
-        'api-version=1.0&' +
+        'api-version=1.0' +
+        '&msafed=0' +
         '&response_type=code' +
         prompt +
         '&client_id=' + config.clientId +
